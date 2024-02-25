@@ -1,0 +1,18 @@
+		#menu{
+			display: flex;
+			justify-content: center;
+		}
+		#menu a{
+			padding-left: 20px;
+			padding-right: 20px;
+			margin: 20px;
+			background-color:#EA5575 ;
+			text-decoration: none;
+			font-family:  Garamond, Times, serif; 
+			border: 2.5px solid #a11912;
+			color: #ffffff;
+		}
+		#menu a:hover{
+			background-color:#a11912;
+			border: 2.5px solid #EA5575;
+		}
