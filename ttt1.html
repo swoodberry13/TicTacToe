@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tic Tac Toe game</title>
+	<style type="text/css">
+		#container_grid{
+			width: max-content;
+			display: grid;
+			background-color: #ffabe1;
+
+			grid-template-columns: 100px 100px 100px;
+			grid-template-rows: 100px 100px 100px;
+
+			column-gap:10px;
+			row-gap: 10px;
+		}
+		.item_grid{
+			background-color: #f75f57;
+			border: 1.5px solid #c71b12;
+			margin: 10px;
+			text-align: center;
+
+			/*code to center text in square*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.textbox{
+			text-align: center;
+			font-size: 80px;
+			color: #ffffff;
+		}
+		.item_grid:hover{
+			/*this just switches the text and background colors and makes the cursor a pointer*/
+			background-color: #ffffff;
+			cursor: pointer;
+			.textbox{color: #f75f57;}
+		}
+		
+	</style>
+
+</head>
+<body>
+
+	<div id="container_grid">
+		<div class="item_grid"><div class="textbox"> </div></div>
+		<div class="item_grid"><div class="textbox">X</div></div>
+		<div class="item_grid"><div class="textbox"> </div></div>
+
+		<div class="item_grid"><div class="textbox"> </div></div>
+		<div class="item_grid"><div class="textbox">O</div></div>
+		<div class="item_grid"><div class="textbox"> </div></div>
+
+		<div class="item_grid"><div class="textbox"> </div></div>
+		<div class="item_grid"><div class="textbox"> </div></div>
+		<div class="item_grid"><div class="textbox">X</div></div>
+	</div>
+
+</body>
+</html>
