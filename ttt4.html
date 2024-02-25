@@ -98,7 +98,7 @@
 		<div id="winCondition">Winner: NA</div>
 		<button id="gameStarter" onclick="startGame()">Start Game</button>
 	</div>
-		<script type="text/javascript">
+<!-- 		<script type="text/javascript">
 		//this pics the first player
 		player='';
 		var initialPlayer=Math.random();
@@ -108,11 +108,20 @@
 		//sets the turn indicator to first player
 		document.getElementById("turnIndicator").innerHTML="Turn: Player "+player;
 
-	</script>
+	</script> -->
 
 	<div class="container_ttt">
 		<div id='tttBox'>
 			  <script>
+			  	function pickPlayer(){//picks first player
+			  		var initialPlayer=Math.random();
+			  		if (initialPlayer<.5) {player="X";}
+			  		else{player="O";}
+			  		//sets the turn indicator to first player
+			  		document.getElementById("turnIndicator").innerHTML="Turn: Player "+player;
+			  	}
+
+
 			  	//given code
 				const NUM_SQUARES = 9;
 				for (i=0; i<NUM_SQUARES; i++){
@@ -131,6 +140,7 @@
 				  	//reset win conditions and moves
 				  	moves=[];
 				  	winConditions=["---","---","---","---","---","---","---","---"];
+				  	pickPlayer();
 
 				  	for (i=0; i<NUM_SQUARES; i++){
 				  		document.getElementById(" sq" + i + " ").innerHTML="";
@@ -139,6 +149,7 @@
 				}
 
 				window.onload=function(){
+					pickPlayer();
 				  	winConditions=["---","---","---","---","---","---","---","---"];//reset win conditions
 				  	for (i = 0; i<NUM_SQUARES; i++){ 
 				  		cur=document.getElementById(" sq" + i + " ");//gets the square
