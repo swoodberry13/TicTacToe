@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+
+		.container_ttt{
+			display: flex;
+			justify-content: center;
+		}
+
+		#tttBox{
+			width: max-content;
+			display: grid;
+			background-color:#b84b46;
+			border: 3px solid #a11912;
+
+			grid-template-columns: 100px 100px 100px;
+			grid-template-rows: 100px 100px 100px;
+			column-gap:10px;
+			row-gap: 10px;
+		}
+
+		.square{
+			background-color: #DD5B55;
+			border: 1.5px solid #a11912;
+			margin: 10px;
+			
+			/*for content inside box*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 80px;
+			color: #ffffff;
+		}
+
+		.square:hover{
+			/*this just switches the text and background colors and makes the cursor a pointer*/
+			background-color:#EA5575; 
+			cursor: pointer;
+		}
+		h1{
+			text-align: center;
+			margin: 20px;
+			color: #ffffff;
+			font-size: 60px;
+		}
+		body{
+			background-color: #C05D79;
+			font-family:  Garamond, Times, serif; 
+		}
+		#turnIndicator,#winCondition{
+
+			border: 1.3px solid #A11912;
+			background-color: #EA5575;
+			margin: 20px;
+			font-family: Garamond, Times, serif; 
+			color: #ffffff;
+
+			width: 110px;
+			display: inline-block;
+			padding: 5px;
+			padding-right: 10px;
+			padding-left: 10px;
+			border-radius: 14px;
+		}
+		#gameStarter{
+			width: 80px;
+			padding: 5px;
+			margin: 20px;
+			display: inline-block;
+
+			color: #ffffff;
+			font-family: Garamond, Times, serif;
+
+			background-color: #EA5575;
+			border-color: #A11912;
+			
+			
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Tic Tac Toe!</h1>
+	<div class="container_ttt">
+		<div id="turnIndicator">Turn: </div>
+		<div id="winCondition">Winner:</div>
+		<button id="gameStarter" onclick="startGame()">Start Game</button>
+	</div>
+		<script type="text/javascript">
+		//this pics the first player
+		player='';
+		var initialPlayer=Math.random();
+		if (initialPlayer<.5) {player="X";}
+		else{player="O";}
+
+		//sets the turn indicator to first player
+		document.getElementById("turnIndicator").innerHTML="Turn: Player "+player;
+
+	</script>
+
+	<div class="container_ttt">
+		<div id='tttBox'>
+			  <script>
+			  	//given code
+				  	const NUM_SQUARES = 9;
+				  	for (i=0; i<NUM_SQUARES; i++){
+				  		id = "sq"+i;  
+				  		document.write("<div class='square' id =' " + id + " '></div>");
+				  	}
+				  	// end of given code
+
+				  	function startGame(){
+				  		for (i=0; i<NUM_SQUARES; i++){
+				  			document.getElementById(" sq" + i + " ").innerHTML="";
+				  		}
+				  	}
+
+				  	window.onload=function(){
+				  		for (i = 0; i<NUM_SQUARES; i++){ 
+				  			cur=document.getElementById(" sq" + i + " ");//gets the square
+				  			cur.onclick=boxClick;
+				  			cur.value=i;
+				  		}
+
+				  		function boxClick(q){ 
+				  			boxNum= q.target.value;
+				  			mybox= document.getElementById(" sq" + boxNum + " ")
+				  			alert("Box "+ boxNum+" has been selected");
+
+				  			if (mybox.innerHTML == "") {
+				  				mybox.innerHTML = player;
+				  				if (player=="X") {player="O";}
+				  				else{player="X";}
+				  			}
+				  			//resets the turn indicator
+				  			document.getElementById("turnIndicator").innerHTML="Turn: Player "+player;
+				  		}
+				  	}
+			  	</script>
+		</div>
+	</div>
+
+</body>
+</html>
